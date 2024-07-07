@@ -1,0 +1,10 @@
+const express = require("express");
+const router = express.Router();
+const uploadMiddleware = require("../utils/handlerStorage")
+const {
+    createStorage
+} = require("../controllers/storage");
+
+router.post("/", uploadMiddleware.single("myfile"), createStorage);
+
+module.exports = router;
